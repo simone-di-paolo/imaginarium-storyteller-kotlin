@@ -18,7 +18,6 @@ build/
 
 # Gradle files
 .gradle/
-build/
 
 # Local configuration file (sdk path, etc)
 local.properties
@@ -70,20 +69,10 @@ lint-results.xml
 *.iws
 *.ipr*.swp*.swo*.DS_Store
 
-# local properties
-local.properties
-
-# Build folder
-build/
 
 # Generated folder
 generated/
 
-# Compiled class file
-*.class
-
-# Log file
-*.log
 
 # Crashlytics mapping file
 mapping.txt
@@ -97,7 +86,6 @@ mapping.txt
 
 # Editor and IDE files
 .idea/
-*.iml
 .vscode/
 
 # OS-specific files
