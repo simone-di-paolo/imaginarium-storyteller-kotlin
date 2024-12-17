@@ -8,4 +8,60 @@
     <string name="image2_description">Cookies</string>
     <string name="image3_description">Cake</string>
     <string name="results_placeholder">(Results will appear here)</string>
+
+    <!-- Prompt 1 -->
+    <string name="prompt1_start">Tell me a story about a</string>
+    <string name="prompt1_subject">fox</string>
+    <string name="prompt1_action">over the</string>
+    <string name="prompt1_other_subject">dog</string>
+
+    <!-- Prompt 2 -->
+
+    <!-- Prompt 3 -->
+
+    <!-- Prompt 4 -->
+
+    <!-- Prompt 5 -->
+
+    <!-- Prompt 6 -->
+
+
+    <string-array name="adjective_options">
+        <item>brown</item>
+        <item>quick</item>
+        <item>sly</item>
+        <item>cunning</item>
+        <item>clever</item>
+        <item>swift</item>
+        <item>agile</item>
+        <item>nimble</item>
+        <item>stealthy</item>
+        <item>mischievous</item>
+    </string-array>
+
+    <string-array name="verb_options">
+        <item>jumps</item>
+        <item>runs</item>
+        <item>leaps</item>
+        <item>prances</item>
+        <item>scurries</item>
+        <item>dashes</item>
+        <item>bounds</item>
+        <item>sprints</item>
+        <item>gallops</item>
+        <item>trots</item>
+    </string-array>
+
+    <string-array name="adjective2_options">
+        <item>lazy</item>
+        <item>sleepy</item>
+        <item>grumpy</item>
+        <item>dopey</item>
+        <item>clumsy</item>
+        <item>playful</item>
+        <item>friendly</item>
+        <item>hungry</item>
+        <item>tired</item>
+        <item>excited</item>
+    </string-array>
 </resources>

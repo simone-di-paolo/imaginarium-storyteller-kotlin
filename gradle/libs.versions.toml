@@ -12,10 +12,12 @@ composeBom = "2024.12.01"
 generativeai = "0.9.0"
 googleAndroidLibrariesMapsplatformSecretsGradlePlugin = "2.0.1"
 material = "1.7.6"
+navigationCompose = "2.8.5"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-material = { module = "androidx.compose.material:material", version.ref = "material" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
