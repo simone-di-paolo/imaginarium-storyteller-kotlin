@@ -13,7 +13,11 @@ import com.example.imaginariumstoryteller.data.Prompt
 import com.example.imaginariumstoryteller.data.PromptWordType
 
 @Composable
-fun PromptText(prompt: Prompt, onWordClick: (PromptWordType) -> Unit) {
+fun PromptText(
+    prompt: Prompt,
+    onWordClick: (PromptWordType) -> Unit,
+    modifier: Modifier = Modifier
+) {
     val annotatedString = buildAnnotatedString {
         append(prompt.start)
         // Aggiungi un LinkAnnotation per la parola cliccabile
@@ -30,18 +34,50 @@ fun PromptText(prompt: Prompt, onWordClick: (PromptWordType) -> Unit) {
             append(" ${prompt.adjective1} ")
         }
         pop()
-        // ... continua per le altre parti del prompt ...
+
+        // subject
+        append(prompt.subject)
+
+        // verb
+        pushStringAnnotation(tag = "verb", annotation = "verb")
+        withStyle(
+            style = SpanStyle(
+                color = Color.Blue, // TODO personalizzare stile link
+                textDecoration = TextDecoration.Underline
+            )) {
+            append(" ${prompt.verb}")
+        }
+        pop()
+
+        // prepositional phrase
+        append(prompt.prepositionalPhrase)
+
+        // adjective 2
+        pushStringAnnotation(tag = "adjective2", annotation = "adjective2")
+        withStyle(
+            style = SpanStyle(
+                color = Color.Blue, // TODO personalizzare stile link
+                textDecoration = TextDecoration.Underline
+            )
+        ) {
+            append(" ${prompt.adjective2} ")
+        }
+        pop()
+
+        // other subject
+        append(prompt.otherSubject)
     }
 
     Text(
         text = annotatedString,
-        modifier = Modifier.clickable {
-            // Gestisci il click sul testo
-            val adjective1Annotation = annotatedString
-                .getStringAnnotations(tag = "adjective1", start = 0, end = annotatedString.length)
-                .firstOrNull()
-            if (adjective1Annotation != null) {
-                onWordClick(PromptWordType.Adjective1)
+        modifier = modifier.clickable { // Modificato qui!
+            val annotations = annotatedString.getStringAnnotations(start = 0, end = annotatedString.length)
+            annotations.forEach { range ->
+                when (range.tag) {
+                    "adjective1" -> onWordClick(PromptWordType.Adjective1)
+                    "verb" -> onWordClick(PromptWordType.Verb)
+                    "adjective2" -> onWordClick(PromptWordType.Adjective2)
+                }
             }
         }
     )

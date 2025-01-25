@@ -87,41 +87,52 @@ fun StartScreen(navController: NavHostController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.baked_goods_1), // Replace with your logo
-            contentDescription = "App Logo",
-            modifier = Modifier.size(128.dp)
-        )
-        Spacer(modifier = Modifier.height(32.dp))
-        Spacer(modifier = Modifier.height(32.dp))
+        Box(
+            modifier = Modifier.fillMaxWidth(),
+            contentAlignment = Alignment.Center
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.baked_goods_1), // Replace with your logo
+                contentDescription = "App Logo",
+                modifier = Modifier.size(128.dp)
+            )
+        }
+        Spacer(modifier = Modifier.weight(1f))
         // Display a simple prompt here
-        PromptText(
-            prompt = prompt,
-            onWordClick = { wordType ->
-                // Gestisci il click sulla parola modificabile
-                when (wordType) {
-                    PromptWordType.Adjective1 -> {
-                        // Logica per aggiornare prompt.adjective1
-                        // ...
-                    }
-                    PromptWordType.Verb -> {
-                        // Logica per aggiornare prompt.verb
-                        // ...
-                    }
-                    PromptWordType.Adjective2 -> {
-                        // Logica per aggiornare prompt.adjective2
-                        // ...
-                    }
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Bottom
+        ) {
+            PromptText(
+                prompt = prompt,
+                onWordClick = { wordType ->
+                    // Gestisci il click sulla parola modificabile
+                    when (wordType) {
+                        PromptWordType.Adjective1 -> {
+                            // Logica per aggiornare prompt.adjective1
+                            // ...
+                        }
+                        PromptWordType.Verb -> {
+                            // Logica per aggiornare prompt.verb
+                            // ...
+                        }
+                        PromptWordType.Adjective2 -> {
+                            // Logica per aggiornare prompt.adjective2
+                            // ...
+                        }
 
-                    PromptWordType.Adjective1 -> TODO()
-                    PromptWordType.Verb -> TODO()
-                    PromptWordType.Adjective2 -> TODO()
-                }
+                        PromptWordType.Adjective1 -> TODO()
+                        PromptWordType.Verb -> TODO()
+                        PromptWordType.Adjective2 -> TODO()
+                    }
+                },
+                modifier = Modifier.fillMaxWidth(0.8f)
+            )
+            Spacer(modifier = Modifier.height(32.dp))
+            Button(onClick = { navController.navigate("prompt_edit") }) {
+                Text("Begin to create a story!")
             }
-        )
-        Spacer(modifier = Modifier.height(32.dp))
-        Button(onClick = { navController.navigate("prompt_edit") }) {
-            Text("Begin to create a story!")
         }
     }
 }
